@@ -6,9 +6,9 @@ const skillGroups = [
 
 export default function Skills() {
     return (
-        <section className="skills" id="skills" data-section="04">
+        <section className="skills" id="skills" data-section="06">
             <div className="container">
-                <p className="section-label" data-reveal><span className="label-index">04</span>Capabilities</p>
+                <p className="section-label" data-reveal><span className="label-index">06</span>Capabilities</p>
                 <h2 className="section-title" data-reveal>What I <em className="accent-gradient">Do</em></h2>
                 <div className="skills-grid">
                     {skillGroups.map((group) => (

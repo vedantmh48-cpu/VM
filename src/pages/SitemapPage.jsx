@@ -6,6 +6,8 @@ const mainLinks = [
     { label: "Clients", to: "/#clients" },
     { label: "About", to: "/#about" },
     { label: "Skills", to: "/#skills" },
+    { label: "Education", to: "/#education" },
+    { label: "Certifications", to: "/#certifications" },
     { label: "Contact", to: "/#contact" },
 ];
 

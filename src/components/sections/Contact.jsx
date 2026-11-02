@@ -49,9 +49,9 @@ export default function Contact() {
     };
 
     return (
-        <section className="contact" id="contact" data-section="05">
+        <section className="contact" id="contact" data-section="07">
             <div className="container">
-                <p className="section-label center" data-reveal><span className="label-index">05</span>Let's Connect</p>
+                <p className="section-label center" data-reveal><span className="label-index">07</span>Let's Connect</p>
                 <h2 className="section-title center" data-reveal>
                     Let's Make Something
                     <em className="accent-gradient">Awesome Together.</em>

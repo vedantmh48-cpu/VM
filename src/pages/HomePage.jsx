@@ -5,6 +5,8 @@ import Hero from "../components/sections/Hero.jsx";
 import About from "../components/sections/About.jsx";
 import Projects from "../components/sections/Projects.jsx";
 import Clients from "../components/sections/Clients.jsx";
+import Education from "../components/sections/Education.jsx";
+import Certifications from "../components/sections/Certifications.jsx";
 import Skills from "../components/sections/Skills.jsx";
 import Contact from "../components/sections/Contact.jsx";
 import useScrollReveal from "../hooks/useScrollReveal.js";
@@ -28,6 +30,8 @@ export default function HomePage() {
             <About />
             <Projects />
             <Clients />
+            <Education />
+            <Certifications />
             <Skills />
             <Contact />
         </main>

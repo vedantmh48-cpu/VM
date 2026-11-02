@@ -7,6 +7,8 @@ const quickLinks = [
     { label: "Clients", to: "/#clients" },
     { label: "About", to: "/#about" },
     { label: "Skills", to: "/#skills" },
+    { label: "Education", to: "/#education" },
+    { label: "Certifications", to: "/#certifications" },
     { label: "Contact", to: "/#contact" },
 ];
 
@@ -16,6 +18,8 @@ const siteLinks = [
     { label: "Clients", to: "/#clients" },
     { label: "About", to: "/#about" },
     { label: "Skills", to: "/#skills" },
+    { label: "Education", to: "/#education" },
+    { label: "Certifications", to: "/#certifications" },
     { label: "Contact", to: "/#contact" },
     { label: "Privacy Policy", to: "/privacy-policy" },
     { label: "Terms & Conditions", to: "/terms-conditions" },
@@ -80,7 +84,7 @@ export default function Footer() {
                     <div className="footer-col">
                         <h4>Navigate</h4>
                         <ul>
-                            {siteLinks.slice(0, 4).map((link) => (
+                            {siteLinks.slice(0, 6).map((link) => (
                                 <li key={link.to}>
                                     <Link to={link.to} className="footer-link">{link.label}</Link>
                                 </li>

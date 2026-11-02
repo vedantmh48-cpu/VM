@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Skills", to: "/#skills" },
   { label: "Projects", to: "/#projects" },
   { label: "Education", to: "/#education" },
-  { label: "Achievements", to: "/#achievements" },
+  { label: "Certifications", to: "/#certifications" },
   { label: "Contact", to: "/#contact" },
 ];
 
@@ -68,7 +68,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <a href={`${import.meta.env.BASE_URL}resume.pdf`} className="nav-cta" data-cursor="button" download>
+          <a href={`${import.meta.env.BASE_URL}Vedant%20Mhatre.pdf`} className="nav-cta" data-cursor="button" download="Vedant Mhatre.pdf">
             Download Resume
           </a>
 
