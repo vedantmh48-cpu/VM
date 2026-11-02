@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { WHATSAPP_URL } from "../../constants/contact.js";
 
 const EMAIL = "vedantmh48@gmail.com";
 
@@ -127,7 +128,7 @@ export default function Contact() {
                         <span className="link-arrow">↗</span>
                     </a>
 
-                    <a href={`https://wa.me/?text=Hi%20Vedant!%20I'd%20love%20to%20work%20with%20you.`} target="_blank" rel="noopener" className="contact-link" data-cursor="button">
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="contact-link" data-cursor="button">
                         <span className="contact-icon" aria-hidden="true"><FaWhatsapp /></span>
                         <span className="contact-text">WhatsApp</span>
                         <span className="link-arrow">↗</span>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { WHATSAPP_URL } from "../constants/contact.js";
 
 const mainLinks = [
     { label: "Home", to: "/#home" },
@@ -21,7 +22,7 @@ const externalLinks = [
     { label: "GitHub", href: "https://github.com/vedantmh48-cpu" },
     { label: "LinkedIn", href: "https://linkedin.com" },
     { label: "Instagram", href: "https://instagram.com" },
-    { label: "WhatsApp", href: "https://wa.me/919999999999" },
+    { label: "WhatsApp", href: WHATSAPP_URL },
     { label: "Vedant Travels", href: "https://vedantgo.in" },
 ];
 

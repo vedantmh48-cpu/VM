@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { WHATSAPP_URL } from "../constants/contact.js";
 
 const quickLinks = [
     { label: "Home", to: "/#home" },
@@ -31,7 +32,7 @@ const contactLinks = [
     { label: "GitHub", href: "https://github.com/vedantmh48-cpu", icon: <FaGithub /> },
     { label: "LinkedIn", href: "https://linkedin.com", icon: <FaLinkedin /> },
     { label: "Instagram", href: "https://www.instagram.com/v1dant_14/", icon: <FaInstagram /> },
-    { label: "WhatsApp", href: "https://wa.me/919028076580?text=Hi%20Vedant!%20I'd%20love%20to%20work%20with%20you.", icon: <FaWhatsapp /> },
+    { label: "WhatsApp", href: WHATSAPP_URL, icon: <FaWhatsapp /> },
 ];
 
 export default function Footer() {
@@ -53,7 +54,7 @@ export default function Footer() {
                             things people actually remember.
                         </p>
                         <div className="footer-socials">
-                            {contactLinks.slice(0, 4).map((link) => (
+                            {contactLinks.map((link) => (
                                 <a
                                     key={link.label}
                                     href={link.href}
@@ -112,6 +113,12 @@ export default function Footer() {
                                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-contact-link">
                                     <span className="footer-contact-icon"><FaLinkedin /></span>
                                     LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="footer-contact-link">
+                                    <span className="footer-contact-icon"><FaWhatsapp /></span>
+                                    WhatsApp
                                 </a>
                             </li>
                         </ul>

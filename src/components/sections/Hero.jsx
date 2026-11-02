@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import {
     FaBriefcase,
@@ -8,14 +7,17 @@ import {
     FaInstagram,
     FaLightbulb,
     FaLinkedin,
+    FaWhatsapp,
 } from "react-icons/fa";
 import gsap from "gsap";
 import useReducedMotion from "../../hooks/useReducedMotion.js";
+import { WHATSAPP_URL } from "../../constants/contact.js";
 
 const socialLinks = [
     { label: "GitHub", href: "https://github.com/vedantmh48-cpu", icon: <FaGithub /> },
     { label: "LinkedIn", href: "https://linkedin.com", icon: <FaLinkedin /> },
     { label: "Instagram", href: "https://www.instagram.com/v1dant_14/", icon: <FaInstagram /> },
+    { label: "WhatsApp", href: WHATSAPP_URL, icon: <FaWhatsapp /> },
 ];
 
 const heroFeatures = [
@@ -89,10 +91,10 @@ export default function Hero() {
                     <h2 className="hero-subtitle reveal-3">Full-Stack Developer &amp; Creative Designer</h2>
                     <p className="hero-desc reveal-4">I craft digital experiences that blend design, motion, and technology into something people actually remember.</p>
                     <div className="hero-actions reveal-5">
-                        <Link to="/#projects" className="btn btn-primary" data-cursor="button">
+                        <a href={`${import.meta.env.BASE_URL}#projects`} className="btn btn-primary" data-cursor="button">
                             Explore Projects <span className="btn-arrow" aria-hidden="true">→</span>
-                        </Link>
-                        <Link to="/#contact" className="btn btn-ghost" data-cursor="button">Contact Me</Link>
+                        </a>
+                        <a href={`${import.meta.env.BASE_URL}#contact`} className="btn btn-ghost" data-cursor="button">Contact Me</a>
                         <a href="https://github.com/vedantmh48-cpu" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" data-cursor="button">
                             GitHub <FaGithub aria-hidden="true" />
                         </a>
