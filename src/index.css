@@ -6056,6 +6056,76 @@ body {
         color: var(--amber);
     }
 
+    .mobile-menu-resume {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .mobile-resume-link {
+        display: inline-flex;
+        min-height: 44px;
+        flex: 1 1 150px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 16px;
+        border: 1px solid rgba(245, 196, 102, 0.28);
+        border-radius: 999px;
+        color: #eee8dc;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+        transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
+    }
+
+    .mobile-resume-link.primary {
+        border-color: var(--amber);
+        background: var(--amber);
+        color: #14110a;
+    }
+
+    .mobile-resume-link:hover,
+    .mobile-resume-link:focus-visible {
+        border-color: var(--amber);
+        background: rgba(242, 180, 71, 0.1);
+        color: var(--amber);
+    }
+
+    .mobile-resume-link.primary:hover,
+    .mobile-resume-link.primary:focus-visible {
+        background: #f5c466;
+        color: #14110a;
+    }
+
+    .mobile-social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+    }
+
+    .mobile-social-link {
+        display: inline-flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(245, 196, 102, 0.2);
+        border-radius: 50%;
+        color: #c9c2b4;
+        font-size: 18px;
+        transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+
+    .mobile-social-link:hover,
+    .mobile-social-link:focus-visible {
+        transform: translateY(-2px);
+        border-color: var(--amber);
+        background: rgba(242, 180, 71, 0.1);
+        color: var(--amber);
+    }
+
     .mobile-menu.open .mobile-menu-header,
     .mobile-menu.open li {
         animation: mobileMenuEnter 0.42s var(--ease-expo) both;

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { WHATSAPP_URL } from "../constants/contact.js";
 
 const navLinks = [
   { label: "Home", to: "/#home" },
@@ -10,6 +12,14 @@ const navLinks = [
   { label: "Certifications", to: "/#certifications" },
   { label: "Tech I Know", to: "/#tech-i-know" },
   { label: "Contact", to: "/#contact" },
+];
+
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/vedantmh48-cpu", icon: <FaGithub /> },
+  { label: "LinkedIn", href: "https://linkedin.com", icon: <FaLinkedin /> },
+  { label: "WhatsApp", href: WHATSAPP_URL, icon: <FaWhatsapp /> },
+  { label: "Instagram", href: "https://www.instagram.com/v1dant_14/", icon: <FaInstagram /> },
+  { label: "Email", href: "mailto:vedantmh48@gmail.com", icon: <FaEnvelope /> },
 ];
 
 export default function Navbar() {
@@ -113,6 +123,29 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          <div className="mobile-menu-resume">
+            <a href={`${import.meta.env.BASE_URL}Vedant%20Mhatre.pdf`} className="mobile-resume-link primary" download="Vedant Mhatre.pdf">
+              Download Resume
+            </a>
+            <a href={`${import.meta.env.BASE_URL}Vedant%20Mhatre.pdf`} className="mobile-resume-link" target="_blank" rel="noopener noreferrer">
+              View Resume Online
+            </a>
+          </div>
+          <div className="mobile-social-links" role="group" aria-label="Social media and email links">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="mobile-social-link"
+                aria-label={link.label}
+                title={link.label}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
           <p className="mobile-menu-footer">Creative developer <span aria-hidden="true">·</span> Designer</p>
         </div>
       </nav>
