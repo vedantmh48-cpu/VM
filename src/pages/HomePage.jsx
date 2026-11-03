@@ -8,6 +8,7 @@ import Clients from "../components/sections/Clients.jsx";
 import Education from "../components/sections/Education.jsx";
 import Certifications from "../components/sections/Certifications.jsx";
 import Skills from "../components/sections/Skills.jsx";
+import TechIKnow from "../components/sections/TechIKnow.jsx";
 import Contact from "../components/sections/Contact.jsx";
 import useScrollReveal from "../hooks/useScrollReveal.js";
 
@@ -33,6 +34,7 @@ export default function HomePage() {
             <Education />
             <Certifications />
             <Skills />
+            <TechIKnow />
             <Contact />
         </main>
     );

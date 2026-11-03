@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Projects", to: "/#projects" },
   { label: "Education", to: "/#education" },
   { label: "Certifications", to: "/#certifications" },
+  { label: "Tech I Know", to: "/#tech-i-know" },
   { label: "Contact", to: "/#contact" },
 ];
 
@@ -75,7 +76,10 @@ export default function Navbar() {
           <button
             className={`hamburger${menuOpen ? " active" : ""}`}
             id="hamburger"
-            aria-label="Toggle menu"
+            type="button"
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobileMenu"
             data-cursor="button"
             onClick={() => setMenuOpen((o) => !o)}
           >
@@ -86,17 +90,32 @@ export default function Navbar() {
         </nav>
       </header>
 
-      <div className={`mobile-menu${menuOpen ? " open" : ""}`} id="mobileMenu">
-        <ul>
-          {navLinks.map((link) => (
-            <li key={link.to}>
-              <Link to={link.to} className="mobile-link" onClick={(e) => handleNavClick(e, link.to)}>
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <nav className={`mobile-menu${menuOpen ? " open" : ""}`} id="mobileMenu" aria-label="Mobile navigation">
+        <div className="mobile-menu-inner">
+          <div className="mobile-menu-header">
+            <div>
+              <span className="mobile-menu-kicker">Vedant Mhatre</span>
+              <span className="mobile-menu-title">Navigate</span>
+            </div>
+            <button className="mobile-menu-close" type="button" onClick={() => setMenuOpen(false)}>
+              <span className="mobile-menu-close-arrow" aria-hidden="true">←</span>
+              <span>Close</span>
+            </button>
+          </div>
+          <ul>
+            {navLinks.map((link, index) => (
+              <li key={link.to}>
+                <Link to={link.to} className="mobile-link" onClick={(e) => handleNavClick(e, link.to)}>
+                  <span className="mobile-link-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  <span>{link.label}</span>
+                  <span className="mobile-link-arrow" aria-hidden="true">↗</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mobile-menu-footer">Creative developer <span aria-hidden="true">·</span> Designer</p>
+        </div>
+      </nav>
     </>
   );
 }

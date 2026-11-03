@@ -53,20 +53,6 @@ export default function About() {
                     A little about <em className="accent-gradient">how I create.</em>
                 </h2>
                 <div className="about-story" data-reveal>
-                    <figure className="about-portrait">
-                        <img
-                            src={`${import.meta.env.BASE_URL}images/1000043778.png`}
-                            alt="Illustration of Vedant looking out over a city at sunset"
-                            loading="lazy"
-                        />
-                        <span className="about-portrait-shade" aria-hidden="true"></span>
-                        <figcaption className="about-portrait-caption">
-                            <span className="about-portrait-mark">VM</span>
-                            <span><strong>Vedant Mhatre</strong><small>Developer with a designer's eye</small></span>
-                        </figcaption>
-                        <span className="about-portrait-index" aria-hidden="true">01—03</span>
-                    </figure>
-
                     <div className="about-story-panel">
                         <p className="about-intro">Hi, I'm Vedant — a creative developer who enjoys bringing thoughtful ideas to life through design and code.</p>
                         <div className="about-tabs" role="tablist" aria-label="How I create" onKeyDown={handleTabKeyDown}>
@@ -106,6 +92,18 @@ export default function About() {
                             <span>{String(activeStory + 1).padStart(2, "0")} <b>/</b> {String(stories.length).padStart(2, "0")}</span>
                         </div>
                     </div>
+                    <figure className="about-portrait">
+                        <div className="about-bg-text" aria-hidden="true" data-about-text="About">About</div>
+                        <img
+                            src={`${import.meta.env.BASE_URL}images/1.png`}
+                            alt="Illustration of Vedant"
+                            loading="lazy"
+                        />
+                        <figcaption className="about-portrait-caption">
+                            <span className="about-portrait-mark">VM</span>
+                            <span><strong>Vedant Mhatre</strong><small>Developer with a designer's eye</small></span>
+                        </figcaption>
+                    </figure>
                 </div>
                 <div className="stats-row" data-reveal>
                     <div className="stat"><span className="stat-value">10+</span><span className="stat-label">Projects Delivered</span></div>

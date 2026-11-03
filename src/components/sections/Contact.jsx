@@ -1,5 +1,14 @@
 import { useRef, useState } from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import {
+    FaCheck,
+    FaCopy,
+    FaEnvelope,
+    FaGithub,
+    FaInstagram,
+    FaLinkedin,
+    FaPaperPlane,
+    FaWhatsapp,
+} from "react-icons/fa";
 import { WHATSAPP_URL } from "../../constants/contact.js";
 
 const EMAIL = "vedantmh48@gmail.com";
@@ -13,10 +22,11 @@ export default function Contact() {
         try {
             await navigator.clipboard.writeText(EMAIL);
             setCopied(true);
+            setFormStatus({ type: "success", text: "Email address copied to your clipboard." });
             setTimeout(() => setCopied(false), 2000);
         } catch {
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            setCopied(false);
+            setFormStatus({ type: "error", text: "Could not copy the address. Use the email link instead." });
         }
     };
 
@@ -40,101 +50,117 @@ export default function Contact() {
         )}`;
 
         window.location.href = mailtoLink;
-
         setFormStatus({ type: "success", text: "Opening your email client..." });
         form.reset();
-
-        setTimeout(() => {
-            setFormStatus({ type: "", text: "" });
-        }, 5000);
     };
 
     return (
-        <section className="contact" id="contact" data-section="07">
+        <section className="contact" id="contact" data-section="08">
             <div className="container">
-                <p className="section-label center" data-reveal><span className="label-index">07</span>Let's Connect</p>
-                <h2 className="section-title center" data-reveal>
-                    Let's Make Something
-                    <em className="accent-gradient">Awesome Together.</em>
-                </h2>
+                <div className="contact-section-header" data-reveal>
+                    <p className="section-label center"><span className="label-index">08</span>Let's Connect</p>
+                    <h2 className="section-title center">
+                        Have a project in mind?
+                        <em className="accent-gradient">Let's talk.</em>
+                    </h2>
+                    <p className="contact-subtitle">
+                        Tell me what you are building, and let&apos;s make something meaningful together.
+                    </p>
+                </div>
 
-                <div className="contact-grid" data-reveal>
-                    <div className="contact-form-wrap">
-                        <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="contactName">Name</label>
-                                    <input type="text" id="contactName" name="contactName" placeholder="Your name" required />
+                <div className="contact-modern-grid">
+                    <div className="contact-info-panel" data-reveal>
+                        <div className="contact-status-card">
+                            <span className="pulse-dot" aria-hidden="true"></span>
+                            <div>
+                                <strong>Available for new projects</strong>
+                                <small>Have a question or idea? I&apos;d love to hear from you.</small>
+                            </div>
+                        </div>
+
+                        <div className="contact-methods">
+                            <div className="contact-method-card">
+                                <span className="method-icon-wrap"><FaEnvelope aria-hidden="true" /></span>
+                                <div className="method-details">
+                                    <span className="method-label">Email</span>
+                                    <a className="method-value" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                                    <span className="method-sub">Best for project inquiries</span>
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="contactEmail">Email</label>
-                                    <input type="email" id="contactEmail" name="contactEmail" placeholder="you@email.com" required />
-                                </div>
+                                <button
+                                    type="button"
+                                    className={`method-action-btn${copied ? " is-copied" : ""}`}
+                                    onClick={handleCopyEmail}
+                                    aria-label="Copy email address"
+                                >
+                                    {copied ? <FaCheck aria-hidden="true" /> : <FaCopy aria-hidden="true" />}
+                                    {copied ? "Copied" : "Copy"}
+                                </button>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="contactSubject">Subject</label>
-                                <input type="text" id="contactSubject" name="contactSubject" placeholder="What's this about?" required />
+                            <a className="contact-method-card" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                                <span className="method-icon-wrap whatsapp"><FaWhatsapp aria-hidden="true" /></span>
+                                <span className="method-details">
+                                    <span className="method-label">WhatsApp</span>
+                                    <span className="method-value">Start a conversation</span>
+                                    <span className="method-sub">Message me directly</span>
+                                </span>
+                                <span className="method-action-btn link">Chat ↗</span>
+                            </a>
+                        </div>
+
+                        <div className="contact-social-section">
+                            <span className="social-section-title">Find me online</span>
+                            <div className="contact-social-row">
+                                <a className="contact-social-chip" href="https://github.com/vedantmh48-cpu" target="_blank" rel="noopener noreferrer">
+                                    <FaGithub className="chip-icon" aria-hidden="true" /> GitHub <span className="chip-arrow">↗</span>
+                                </a>
+                                <a className="contact-social-chip" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                                    <FaLinkedin className="chip-icon" aria-hidden="true" /> LinkedIn <span className="chip-arrow">↗</span>
+                                </a>
+                                <a className="contact-social-chip" href="https://www.instagram.com/v1dant_14/" target="_blank" rel="noopener noreferrer">
+                                    <FaInstagram className="chip-icon" aria-hidden="true" /> Instagram <span className="chip-arrow">↗</span>
+                                </a>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="contactMessage">Message</label>
-                                <textarea id="contactMessage" name="contactMessage" rows="5" placeholder="Tell me about your project..." required></textarea>
-                            </div>
-                            <button type="submit" className="btn btn-primary btn-full" data-cursor="button">Send Message</button>
-                            <p className={`form-status${formStatus.type ? ` ${formStatus.type}` : ""}`}>
-                                {formStatus.text}
-                            </p>
-                        </form>
+                        </div>
                     </div>
 
-                    <div className="contact-image-wrap">
-                        <div className="contact-image" data-cursor="view">
-                            <img src={`${import.meta.env.BASE_URL}images/profile-art-1.png`} alt="Vedant contact artwork" className="contact-img" />
-                            <div className="contact-image-ring"></div>
-                        </div>
-                        <div className="contact-image-caption">
-                            <span className="pulse-dot"></span>
-                            <span>Available for new projects</span>
+                    <div className="contact-form-panel" data-reveal>
+                        <div className="contact-form-card">
+                            <div className="form-card-header">
+                                <h3>Send a message</h3>
+                                <p>Share a few details and I&apos;ll get back to you.</p>
+                            </div>
+                            <form ref={formRef} onSubmit={handleSubmit} className="modern-contact-form">
+                                <div className="form-grid-2">
+                                    <div className="form-field">
+                                        <label htmlFor="contactName">Name</label>
+                                        <input type="text" id="contactName" name="contactName" placeholder="Your name" required />
+                                    </div>
+                                    <div className="form-field">
+                                        <label htmlFor="contactEmail">Email</label>
+                                        <input type="email" id="contactEmail" name="contactEmail" placeholder="you@email.com" required />
+                                    </div>
+                                </div>
+                                <div className="form-field">
+                                    <label htmlFor="contactSubject">Subject</label>
+                                    <input type="text" id="contactSubject" name="contactSubject" placeholder="What can I help with?" required />
+                                </div>
+                                <div className="form-field">
+                                    <label htmlFor="contactMessage">Message</label>
+                                    <textarea id="contactMessage" name="contactMessage" rows="5" placeholder="Tell me about your project..." required></textarea>
+                                </div>
+                                <button type="submit" className="btn btn-primary contact-submit-btn" data-cursor="button">
+                                    Send Message <FaPaperPlane aria-hidden="true" />
+                                </button>
+                                {formStatus.text && (
+                                    <p className={`form-status-banner ${formStatus.type}`} role={formStatus.type === "error" ? "alert" : "status"}>
+                                        {formStatus.text}
+                                    </p>
+                                )}
+                                <p className="form-privacy-note">This opens your email app to send the message directly.</p>
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                <div className="contact-links" data-reveal>
-                    <button
-                        className={`contact-link copy-email${copied ? " copied" : ""}`}
-                        id="copyEmail"
-                        data-cursor="button"
-                        onClick={handleCopyEmail}
-                    >
-                        <span className="contact-icon" aria-hidden="true"><FaEnvelope /></span>
-                        <span className="contact-text">{EMAIL}</span>
-                        <span className="copy-hint">{copied ? "Copied!" : "Copy"}</span>
-                    </button>
-
-                    <a href="https://github.com/vedantmh48-cpu" target="_blank" rel="noopener" className="contact-link" data-cursor="button">
-                        <span className="contact-icon" aria-hidden="true"><FaGithub /></span>
-                        <span className="contact-text">GitHub</span>
-                        <span className="link-arrow">↗</span>
-                    </a>
-
-                    <a href="https://linkedin.com" target="_blank" rel="noopener" className="contact-link" data-cursor="button">
-                        <span className="contact-icon" aria-hidden="true"><FaLinkedin /></span>
-                        <span className="contact-text">LinkedIn</span>
-                        <span className="link-arrow">↗</span>
-                    </a>
-
-                    <a href="https://instagram.com" target="_blank" rel="noopener" className="contact-link" data-cursor="button">
-                        <span className="contact-icon" aria-hidden="true"><FaInstagram /></span>
-                        <span className="contact-text">Instagram</span>
-                        <span className="link-arrow">↗</span>
-                    </a>
-
-                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="contact-link" data-cursor="button">
-                        <span className="contact-icon" aria-hidden="true"><FaWhatsapp /></span>
-                        <span className="contact-text">WhatsApp</span>
-                        <span className="link-arrow">↗</span>
-                    </a>
-                </div>
-
             </div>
         </section>
     );

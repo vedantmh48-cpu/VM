@@ -21,8 +21,8 @@ export default function useScrollReveal(containerRef) {
 
         const ctx = gsap.context(() => {
             containerRef.current.querySelectorAll("[data-reveal]").forEach((el) => {
-                const isCard = el.matches(".project-card, .client-card, .skill-group, .about-card, .education-card, .certification-card");
-                const cards = el.parentElement?.querySelectorAll(".project-card, .client-card, .skill-group, .about-card, .education-card, .certification-card");
+                const isCard = el.matches(".project-card, .client-card, .skill-group, .about-card, .education-card, .education-card-enhanced, .certification-card, .cert-card-enhanced, .tech-card");
+                const cards = el.parentElement?.querySelectorAll(".project-card, .client-card, .skill-group, .about-card, .education-card, .education-card-enhanced, .certification-card, .cert-card-enhanced, .tech-card");
                 const cardIndex = isCard && cards ? Array.from(cards).indexOf(el) : 0;
 
                 gsap.fromTo(el, {

@@ -5,6 +5,7 @@ import Footer from "./components/Footer.jsx";
 import AmbientBackground from "./components/AmbientBackground.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
 import Preloader from "./components/Preloader.jsx";
+import IntroVideo from "./components/IntroVideo.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import TermsConditions from "./pages/TermsConditions.jsx";
@@ -22,6 +23,7 @@ function ScrollToTop() {
 
 function App() {
     const [loading, setLoading] = useState(true);
+    const [introFinished, setIntroFinished] = useState(false);
 
     const handlePreloaderFinish = () => {
         setLoading(false);
@@ -32,6 +34,7 @@ function App() {
     return (
         <>
             <Preloader onFinish={handlePreloaderFinish} />
+            {!loading && !introFinished && <IntroVideo onFinish={() => setIntroFinished(true)} />}
             <AmbientBackground />
             <ScrollProgress />
             <ScrollToTop />

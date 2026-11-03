@@ -91,7 +91,7 @@ export default function Hero() {
                     <h2 className="hero-subtitle reveal-3">Full-Stack Developer &amp; Creative Designer</h2>
                     <p className="hero-desc reveal-4">I craft digital experiences that blend design, motion, and technology into something people actually remember.</p>
                     <div className="hero-actions reveal-5">
-                        <a href={`${import.meta.env.BASE_URL}#projects`} className="btn btn-primary" data-cursor="button">
+                        <a href={`${import.meta.env.BASE_URL}#projects`} className="btn btn-ghost" data-cursor="button">
                             Explore Projects <span className="btn-arrow" aria-hidden="true">→</span>
                         </a>
                         <a href={`${import.meta.env.BASE_URL}#contact`} className="btn btn-ghost" data-cursor="button">Contact Me</a>

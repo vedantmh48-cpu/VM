@@ -15,8 +15,13 @@ export default function Clients() {
 
                 <div className="clients-grid">
                     <article className="client-card" data-reveal data-cursor="view">
-                        <div className="client-media">
-                            <div className="client-logo"><span className="client-logo-icon">✈</span><span className="client-logo-text">Vedant Travels</span></div>
+                        <div className="client-media client-media-poster">
+                            <img
+                                className="client-poster"
+                                src={`${import.meta.env.BASE_URL}images/client.jpeg`}
+                                alt="Vedant Travels poster"
+                                loading="lazy"
+                            />
                             <span className="status status-active">● Active</span>
                         </div>
                         <div className="client-body"><h3>Vedant Travels</h3><p>Travel & tour company website — booking experiences, destination guides and seamless trip planning.</p><a href="https://vedantgo.in" target="_blank" rel="noopener" className="client-link">Visit Website <span className="link-arrow">↗</span></a></div>
